@@ -135,7 +135,6 @@ function getEAR(upper, lower, ML, MR) {
     return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
   }
 
-  console.log(getEucledianDistance(ML[0], ML[1], MR[0], MR[1]))
   return (
     (getEucledianDistance(upper.left[0], upper.left[1], lower.left[0], lower.left[1])
       + getEucledianDistance(
