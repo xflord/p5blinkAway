@@ -4,15 +4,10 @@ html, body {
 }
 
 
-/* Handsfree.js */
-.handsfree-debugger {
-	position: fixed !important;
-  bottom: 0;
-  right: 0;
-  width: 200px;
-}
-
-video {width: 100%; height: 100%}
+video {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+width: 100%; height: 100%}
 
 canvas {
   display: block;

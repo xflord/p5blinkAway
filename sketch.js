@@ -13,25 +13,35 @@ let distValues = []
 
 
 function setup() {
-  createCanvas(640, 480);
+  createCanvas(1920, 1080);
   var myConfig = {
     hideCursor: true,
+    maxPoses: 3,
     pose: {
-      upperBodyOnly: true
+      enabled: false,
+      upperBodyOnly: true,
     }
   };
   myHandsfree = new Handsfree(myConfig);
+  console.log(myHandsfree)
+  myHandsfree.settings.webcam.video.width = 1929;
+  myHandsfree.settings.webcam.video.height = 1080;
   myHandsfree.start();
 }
 
 
 function draw() {
   background(220);
+  translate(width,0);
+  scale(-1,1)
   if (myHandsfree.isTracking) {
     if (myHandsfree.pose.length > 0) {
 
       var face0 = myHandsfree.pose[0].face;
       var nPoints = face0.vertices.length;
+      
+      translate(200, 1)
+      scale(1.3)
 
       //fill(255, 0, 0);
       noFill()
@@ -134,6 +144,7 @@ function getEAR(upper, lower, ML, MR) {
   function getEucledianDistance(x1, y1, x2, y2) {
     return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
   }
+
 
   return (
     (getEucledianDistance(upper.left[0], upper.left[1], lower.left[0], lower.left[1])
